@@ -5,7 +5,7 @@ class Cell:
 	def __init__(self, i, j):
 		self.i = i
 		self.j = j
-		self.wall = random.uniform(0, 1) < 0.35
+		self.wall = random.uniform(0, 1) < 0.45
 		# infinity default values
 		self.g_score = 9999999999999999999999999
 		self.f_score = 9999999999999999999999999

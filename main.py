@@ -16,7 +16,7 @@
             4. if neighbor not is open_set
                 1. add neighbor to open_set
 4. there is no solution
-5. display solution
+5. display path
 """
 
 from cell import Cell
@@ -44,7 +44,7 @@ while True:
     itera += 1
     s = time()
     grid = []
-    cols, rows = 40, 40
+    cols, rows = 50, 50
     for i in range(cols):
         grid.append([Cell(i, j) for j in range(rows)])
     grid = np.array(grid)
@@ -54,7 +54,6 @@ while True:
     cell_width = (width - 50) / cols
     cell_height = (height - 50) / rows
     start = grid[0][0]
-    start.wall = False
     end = grid[-1][-1]
     end.wall = False
     start.g_score = 0
@@ -94,6 +93,7 @@ while True:
     else:
         print("Done in ", end="")
     print(time() - s, end=" seconds\n")
+    break
 
 par = current
 while True:
