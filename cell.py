@@ -15,11 +15,9 @@ class Cell:
 
 	def draw(self, width, height, scr):
 		if not self.wall and not self.visited:
-			rect(scr, (255, 255, 255), (self.i * width + 25, self.j * height + 25, width, height), 2)
-		elif not self.visited:
-			rect(scr, (0, 0, 0), (self.i * width + 25, self.j * height + 25, width, height))
-		else:
-			rect(scr, (255, 0, 0), (self.i * width + 25, self.j * height + 25, width, height))
+			rect(scr, (255, 255, 255), (self.i * width + 25, self.j * height + 25, width - 2, height - 2), 2)
+		elif self.visited:
+			rect(scr, (255, 0, 0), (self.i * width + 25, self.j * height + 25, width - 2, height - 2))
 		return
 
 	def draw_green(self, width, height, scr):
