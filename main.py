@@ -38,8 +38,10 @@ def get_min(arr):
             mini = min_item.f_score
     return min_item
 
+itera = 0
 
 while True:
+    itera += 1
     s = time()
     grid = []
     cols, rows = 40, 40
@@ -59,9 +61,11 @@ while True:
     start.f_score = h(start)
     open_set = [start]
     path = []
+    clock = pygame.time.Clock()
 
     while True:
         scr.fill((0, 0, 0))
+        # clock.tick(5)
         if open_set == []:
             # no solution
             break
@@ -84,6 +88,7 @@ while True:
             cell.draw(cell_width, cell_height, scr)
         current.draw_green(cell_width, cell_height, scr)
         pygame.display.update()
+    print(f"Iteration {itera}", end=" ")
     if open_set == []:
         print("Failed in ", end="")
     else:
